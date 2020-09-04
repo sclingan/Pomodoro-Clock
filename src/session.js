@@ -7,8 +7,8 @@ const Session = (props) =>{
                 <h1>Session Length:</h1>
                 <div id="session-length">
                     {props.slength}
-                    <button id="session-increment">+</button>
-                    <button id="session-decrement">-</button>
+                    <button id="session-increment" onClick={props.inc}>+</button>
+                    <button id="session-decrement" onClick={props.dec}>-</button>
                 </div>
             </div>
 

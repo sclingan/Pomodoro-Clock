@@ -9,6 +9,7 @@ $whiteText : #F1EAEA;
 $pageColor: #ffffff;
 $buttonColor: #EACB47;
 $timerColor: #0c0c0c;
+$hover: #b99505;
 
 
 body{
@@ -46,6 +47,7 @@ footer{
     text-align: center;
     height: 6vh;
     padding-top: 2vh;
+    margin-top: 10vh;
 }
 
 .session{
@@ -62,8 +64,9 @@ footer{
 
 #session-length{
     margin: 2vh 10vh;
-    button{
-        margin: 2vh;
+    font-size: 4vh;
+    button{ 
+        margin: 2vh 0 2vh 5vh;
         background: $buttonColor;
         height: 2vh;
         width: 2vh;
@@ -71,7 +74,7 @@ footer{
         border-radius: 10px;
         outline: none;
         &:hover{
-            background: #b99505;
+            background: $hover;
             outline: none;
         }
     }
@@ -99,6 +102,10 @@ footer{
 
 #clock{
     margin: 4vh;
+    h1{
+        font-size: 6vh;
+        margin-bottom: 8vh;
+    }
     button{
         margin: 0 2vh;
         background: $buttonColor;
@@ -107,7 +114,10 @@ footer{
         border: none;
         border-radius: 5px;
         box-shadow: .2vh .2vh $textColor;
-    }
+        &:hover{
+            background: $hover;
+        }
+        }
 }
 
 #time-left{

@@ -42,6 +42,7 @@ footer {
   text-align: center;
   height: 6vh;
   padding-top: 2vh;
+  margin-top: 10vh;
 }
 
 .session, .break, .timer {
@@ -58,10 +59,11 @@ footer {
 
 #session-length, #break-length {
   margin: 2vh 10vh;
+  font-size: 4vh;
 }
 
 #session-length button, #break-length button {
-  margin: 2vh;
+  margin: 2vh 0 2vh 5vh;
   background: #EACB47;
   height: 2vh;
   width: 2vh;
@@ -79,6 +81,11 @@ footer {
   margin: 4vh;
 }
 
+#clock h1 {
+  font-size: 6vh;
+  margin-bottom: 8vh;
+}
+
 #clock button {
   margin: 0 2vh;
   background: #EACB47;
@@ -88,6 +95,10 @@ footer {
   border-radius: 5px;
   -webkit-box-shadow: 0.2vh 0.2vh #161414;
           box-shadow: 0.2vh 0.2vh #161414;
+}
+
+#clock button:hover {
+  background: #b99505;
 }
 
 #time-left {
