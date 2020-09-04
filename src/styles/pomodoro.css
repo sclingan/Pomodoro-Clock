@@ -3,6 +3,106 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: lightgoldenrodyellow;
+  background-color: #ffffff;
+  font-family: 'Chalkboard SE';
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 20px;
+}
+
+.pomodoro {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+}
+
+header {
+  -ms-grid-column: 1;
+  grid-column: 1,1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1,4;
+  background: #178513;
+  color: #161414;
+  text-align: center;
+  height: 6vh;
+  padding-top: 2vh;
+}
+
+footer {
+  -ms-grid-column: 1;
+  grid-column: 1,1;
+  -ms-grid-row: 4;
+  grid-row: 4,4;
+  background: #178513;
+  color: #161414;
+  text-align: center;
+  height: 6vh;
+  padding-top: 2vh;
+}
+
+.session, .break, .timer {
+  color: #161414;
+  text-align: center;
+  margin: 2vh 10vh;
+}
+
+#session-label, #break-label, #timer-label {
+  color: #161414;
+  text-align: center;
+  margin: 20px;
+}
+
+#session-length, #break-length {
+  margin: 2vh 10vh;
+}
+
+#session-length button, #break-length button {
+  margin: 2vh;
+  background: #EACB47;
+  height: 2vh;
+  width: 2vh;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+#session-length button:hover, #break-length button:hover {
+  background: #b99505;
+  outline: none;
+}
+
+#clock {
+  margin: 4vh;
+}
+
+#clock button {
+  margin: 0 2vh;
+  background: #EACB47;
+  height: 7vh;
+  width: 7vh;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0.2vh 0.2vh #161414;
+          box-shadow: 0.2vh 0.2vh #161414;
+}
+
+#time-left {
+  background: #0c0c0c;
+  color: #ffffff;
+}
+
+input {
+  text-align: center;
+  background: #0c0c0c;
+  color: #ffffff;
+  height: 6vh;
+  width: 12vh;
+  border: none;
+  border-radius: 5px;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=pomodoro.css.map */

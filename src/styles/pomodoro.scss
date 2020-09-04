@@ -1,6 +1,127 @@
+@import './break';
+@import './session';
+@import './timer';
+
+
+$bgColor : #178513;
+$textColor: #161414;
+$whiteText : #F1EAEA;
+$pageColor: #ffffff;
+$buttonColor: #EACB47;
+$timerColor: #0c0c0c;
+
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: lightgoldenrodyellow;
+    background-color: $pageColor;
+    font-family: 'Chalkboard SE';
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 20px;
+}
+
+.pomodoro{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+}
+
+header{
+    grid-column: 1,1;
+    grid-row: 1,4;
+    background: $bgColor;
+    color: $textColor;
+    text-align: center;
+    height: 6vh;
+    padding-top: 2vh;
+}
+
+footer{
+    grid-column: 1,1;
+    grid-row: 4,4;
+    background: $bgColor;
+    color: $textColor;
+    text-align: center;
+    height: 6vh;
+    padding-top: 2vh;
+}
+
+.session{
+    color: $textColor;
+    text-align: center;
+    margin: 2vh 10vh;
+}
+
+#session-label{
+    color: $textColor;
+    text-align: center;
+    margin: 20px;
+}
+
+#session-length{
+    margin: 2vh 10vh;
+    button{
+        margin: 2vh;
+        background: $buttonColor;
+        height: 2vh;
+        width: 2vh;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        &:hover{
+            background: #b99505;
+            outline: none;
+        }
+    }
+}
+
+.break{
+    @extend .session;
+}
+
+#break-label{
+    @extend #session-label
+}
+
+#break-length{
+    @extend #session-length
+}
+
+.timer{
+    @extend .session;
+}
+
+#timer-label{
+    @extend #session-label
+}
+
+#clock{
+    margin: 4vh;
+    button{
+        margin: 0 2vh;
+        background: $buttonColor;
+        height: 7vh;
+        width: 7vh;
+        border: none;
+        border-radius: 5px;
+        box-shadow: .2vh .2vh $textColor;
+    }
+}
+
+#time-left{
+    background: $timerColor;
+    color: $pageColor;
+}
+
+input{
+    text-align: center;
+    background: $timerColor;
+    color: $pageColor;
+    height: 6vh;
+    width: 12vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
 }
