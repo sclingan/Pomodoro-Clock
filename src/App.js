@@ -16,7 +16,10 @@ class Pomodoro extends React.Component{
         time: '25:00',
         minute: '25',
         second: '00',
-        timerLabel: '',
+        session: true,  // determine where to set/reset this
+        break: false,   // determine where to set/reset this
+        label: 'Session', // fix this
+        timerLabel: '',  // fix this
         start: false,
         pause: false,
     }
@@ -32,19 +35,19 @@ class Pomodoro extends React.Component{
 
   }
 
-  sessionIncrement = () =>{
-    this.setState({
+  sessionIncrement = () =>{   // fix increment, when decremented to 1 , then incremented time value is displayed wrong , no leading '0'
+    this.setState({           // if timer is running , minute is updated but countSecond is wrong
         sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,
         time: (this.state.sessionTimer > 59) ? '60:00' : this.state.sessionTimer + 1 + ':' + '00',
-        minute: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,
+        minute: (this.state.sessionTimer > 59) ? '60' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer +1)) : this.state.sessionTimer + 1,
     });
   }
 
-  sessionDecrement = () =>{
-    this.setState({
+  sessionDecrement = () =>{    // if break is decremented lower than 10 , when start is pushed time is displayed without leading '0'
+    this.setState({            // if counter is running , minute is updated but countSecond is wrong
       sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,
       time: (this.state.sessionTimer < 2) ? '01:00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) + ':' + '00' : this.state.sessionTimer - 1 + ':' + '00',
-      minute: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,
+      minute: (this.state.sessionTimer < 2) ? '01' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) : this.state.sessionTimer - 1,
     });
   }
 
@@ -80,7 +83,9 @@ class Pomodoro extends React.Component{
       startSecond = setInterval(this.countSeconds, 1 * 1000);
       this.setState({
         pause: false,
-        timerLabel: 'Started',
+        session: this.state.session,
+        break: this.state.break,
+        timerLabel: (this.state.session) ? 'Session Started' : 'Break Started',  // fix this, either update with state or 'text' ?????
       })
     }else{
     if(this.state.start){
@@ -88,7 +93,7 @@ class Pomodoro extends React.Component{
       clearInterval(startSecond);
       this.setState({
         time: this.state.time,
-        timerLabel: 'Paused',
+        timerLabel: this.state.label + ' Paused',
         minute: this.state.minute,
         second: this.state.second,
         pause: true,
@@ -96,9 +101,10 @@ class Pomodoro extends React.Component{
     }else{
     startMinute = setInterval(this.countMinutes, 60 * 1000);
     startSecond = setInterval(this.countSeconds, 1 * 1000);
-    this.setState({
+    this.setState({     // add state label: (session: true then break is false, or break: true then session is false)
       start: true,
-      timerLabel: 'Started',
+      label: this.state.label,
+      timerLabel: this.state.label + ' Started',
     })
     }
    }
