@@ -43,6 +43,7 @@ footer {
   height: 6vh;
   padding-top: 2vh;
   margin-top: 10vh;
+  padding-bottom: 4vh;
 }
 
 .session, .break, .timer {
@@ -77,6 +78,10 @@ footer {
   outline: none;
 }
 
+#session-length button:focus, #break-length button:focus {
+  outline: none;
+}
+
 #clock {
   margin: 4vh;
 }
@@ -95,10 +100,15 @@ footer {
   border-radius: 5px;
   -webkit-box-shadow: 0.2vh 0.2vh #161414;
           box-shadow: 0.2vh 0.2vh #161414;
+  outline: none;
 }
 
 #clock button:hover {
   background: #b99505;
+}
+
+#clock button:focus {
+  outline: none;
 }
 
 #time-left {
