@@ -63,6 +63,11 @@ footer{
     color: $textColor;
     text-align: center;
     margin: 20px;
+    h3{
+        margin: 40px;
+        font-size: 4vh;
+        padding-left: 6vh;
+    }
 }
 
 #session-length{
@@ -111,6 +116,9 @@ footer{
     h1{
         font-size: 3vh;
         margin-bottom: 8vh;
+    }
+    #red{
+        color: rgb(187, 80, 80);
     }
     button{
         margin: 0 2vh;

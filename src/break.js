@@ -5,13 +5,12 @@ const Break = (props) =>{
         <div className="break">
             <div id="break-label">
                 <h1>Break Length:</h1>
+                <h3>{props.blength}</h3>
                 <div id="break-length">
-                    {props.blength}
                     <button id="break-increment" onClick={props.inc}>+</button>
                     <button id="break-decrement" onClick={props.dec}>-</button>
                 </div>
             </div>
-
         </div>
     );
 };

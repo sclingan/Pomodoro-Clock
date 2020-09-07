@@ -60,6 +60,12 @@ footer {
   margin: 20px;
 }
 
+#session-label h3, #break-label h3, #timer-label h3 {
+  margin: 40px;
+  font-size: 4vh;
+  padding-left: 6vh;
+}
+
 #session-length, #break-length {
   margin: 2vh 10vh;
   font-size: 4vh;
@@ -91,6 +97,10 @@ footer {
 #clock h1 {
   font-size: 3vh;
   margin-bottom: 8vh;
+}
+
+#clock #red {
+  color: #bb5050;
 }
 
 #clock button {
