@@ -28,8 +28,10 @@ header {
   background: #178513;
   color: #161414;
   text-align: center;
-  height: 6vh;
+  text-shadow: 1px 1px #F1EAEA;
+  height: 8vh;
   padding-top: 2vh;
+  font-size: 4vh;
 }
 
 footer {
@@ -87,7 +89,7 @@ footer {
 }
 
 #clock h1 {
-  font-size: 6vh;
+  font-size: 3vh;
   margin-bottom: 8vh;
 }
 
