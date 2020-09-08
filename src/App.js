@@ -13,9 +13,9 @@ class Pomodoro extends React.Component{
     this.state={
         sessionTimer: 25,
         breakTimer: 5,
-        time: '25:00',
-        minute: '25',
-        second: '00',
+        time: '24:59',
+        minute: '24',
+        second: '59',
         session: true,  
         break: false,   
         label: 'Session', 
@@ -47,7 +47,7 @@ class Pomodoro extends React.Component{
     }else{
     this.setState({          
         sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,
-        time: (this.state.sessionTimer > 59) ? '60:00' : this.state.sessionTimer + 1 + ':' + '00',  // fix bug here
+        time: (this.state.sessionTimer > 59) ? /*'60:00' */ '59:59' : this.state.sessionTimer /*+ 1*/ + ':' + '59',  // fix bug here
         minute: (this.state.sessionTimer > 59) ? '60' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer +1)) : this.state.sessionTimer + 1,
     });
    }
@@ -60,8 +60,8 @@ class Pomodoro extends React.Component{
       })
     }else{
     this.setState({           
-      sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,
-      time: (this.state.sessionTimer < 2) ? '01:00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) + ':' + '00' : this.state.sessionTimer - 1 + ':' + '00', 
+      sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,          // fix below this comment , below 10 not showing leading '0'
+      time: (this.state.sessionTimer < 2) ? '00:59' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -2)) + ':' + '59' : this.state.sessionTimer - 2 + ':' + '59', 
       minute: (this.state.sessionTimer < 2) ? '01' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) : this.state.sessionTimer - 1,
     });
    }
@@ -115,7 +115,7 @@ class Pomodoro extends React.Component{
     }
   }
 
-  start_stop = () =>{
+  start_stop = () =>{     // fix the delay between hitting the start/stop button and countMinutes/countSeconds starting !!! possibly from passing from state to props and back???
     if(this.state.pause){
       startMinute = setInterval(this.countMinutes, 60 * 1000);
       startSecond = setInterval(this.countSeconds, 1 * 1000);
@@ -136,8 +136,8 @@ class Pomodoro extends React.Component{
         warn: false,
       })
     }else{
-    startMinute = setInterval(this.countMinutes, 60 * 1000);
-    startSecond = setInterval(this.countSeconds, 1 * 1000);
+      startMinute = setInterval(this.countMinutes, 60 * 1000);
+      startSecond = setInterval(this.countSeconds, 1 * 1000);
     this.setState({     
       start: true,
       labelAction: this.state.label + ' Started',
@@ -155,7 +155,7 @@ class Pomodoro extends React.Component{
       breakTimer: this.state.breakTimer,  
       time: (this.state.session) ? (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer)) + ':' + '00' : this.state.breakTimer + ':' + '00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer)) + ':' + '00' : this.state.sessionTimer + ':' + '00',
       minute: (this.state.session) ? (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer)) : this.state.breakTimer : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer)) : this.state.sessionTimer,    
-      second:  '00',
+      second:  '00',                       // check this value when breakTimer starts, should it be '00' or 59??
       session: (this.state.session) ? false : true,
       break: (this.state.break) ? false : true,
       label: (this.state.session) ? 'Break': 'Session',   
@@ -173,9 +173,9 @@ class Pomodoro extends React.Component{
     this.setState({
       sessionTimer: 25,
       breakTimer: 5,
-      time: '25:00',
-      minute: '25',
-      second: '00',
+      time: '24:59',
+      minute: '24',
+      second: '59',
       session: true,
       break: false,
       label: (this.state.session) ? 'Session' : 'Break',
