@@ -8,7 +8,8 @@ const Break = (props) =>{
                 <h3>{props.blength}</h3>
                 <div id="break-length">
                     <button id="break-increment" onClick={props.inc}>+</button>
-                    <button id="break-decrement" onClick={props.dec}>-</button>
+                    <button id="break-decrement" onClick={props.dec}>-</button><br/>
+                    <span>{props.warning}</span>
                 </div>
             </div>
         </div>

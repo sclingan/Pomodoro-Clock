@@ -23,6 +23,8 @@ class Pomodoro extends React.Component{
         start: false,
         pause: false,
         end: '',
+        warning: '',
+        warn: false,
     }
 
     this.sessionIncrement = this.sessionIncrement.bind(this);
@@ -35,38 +37,62 @@ class Pomodoro extends React.Component{
     this.start_stop = this.start_stop.bind(this);
     this.counterEnd = this.counterEnd.bind(this);
 
-  }
+  }                          
 
-  sessionIncrement = () =>{   // disable this when timer is running
-    this.setState({           // if timer is running , minute is updated but countSecond is wrong
+  sessionIncrement = () =>{  // if breakTimer is running then paused, sessionDecrement cuasees this.state.time to change breakTimer
+    if(this.state.warn){   
+         this.setState({
+           warning: 'Please press start/stop or reset to change',
+         })
+    }else{
+    this.setState({          
         sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,
-        time: (this.state.sessionTimer > 59) ? '60:00' : this.state.sessionTimer + 1 + ':' + '00',
+        time: (this.state.sessionTimer > 59) ? '60:00' : this.state.sessionTimer + 1 + ':' + '00',  // fix bug here
         minute: (this.state.sessionTimer > 59) ? '60' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer +1)) : this.state.sessionTimer + 1,
     });
+   }
   }
 
-  sessionDecrement = () =>{    // disable this when timer is running
-    this.setState({            // if counter is running , minute is updated but countSecond is wrong
+  sessionDecrement = () =>{   // if breakTimer is running then paused, sessionDecrement cuasees this.state.time to change breakTimer
+    if(this.state.warn){
+      this.setState({
+        warning: 'Please press start/stop or reset to change',
+      })
+    }else{
+    this.setState({           
       sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,
-      time: (this.state.sessionTimer < 2) ? '01:00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) + ':' + '00' : this.state.sessionTimer - 1 + ':' + '00',
+      time: (this.state.sessionTimer < 2) ? '01:00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) + ':' + '00' : this.state.sessionTimer - 1 + ':' + '00', 
       minute: (this.state.sessionTimer < 2) ? '01' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) : this.state.sessionTimer - 1,
     });
+   }
   }
 
-  breakIncrement = () =>{  // disable this when timer is running
+  breakIncrement = () =>{  
+    if(this.state.warn){
+      this.setState({
+        warning: 'Please press start/stop or reset to change',
+      })
+    }else{
     this.setState({
       breakTimer: (this.state.breakTimer > 59) ? 60 : this.state.breakTimer + 1,
-      time: (this.state.breakTimer > 59) ? '60:00' : this.state.breakTimer + 1 + ':' + '00',
+      time: this.state.time,
       minute: (this.state.breakTimer > 59) ? '60' : (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer +1)) : this.state.breakTimer + 1,
     });
+   }
   }
 
-  breakDecrement = () =>{  // disable this when timer is running
+  breakDecrement = () =>{  
+    if(this.state.warn){
+      this.setState({
+        warning: 'Please press start/stop or reset to change',
+      })
+    }else{
     this.setState({
       breakTimer: (this.state.breakTimer < 2) ? 1 : this.state.breakTimer - 1,
-      time: (this.state.breakTimer < 2) ? '01:00' : (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer -1)) + ':' + '00' : this.state.breakTimer - 1 + ':' + '00',
+      time: this.state.time,
       minute: (this.state.breakTimer < 2) ? '01' : (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer -1)) : this.state.breakTimer - 1,
     })
+   }
   }
 
   countMinutes = () =>{
@@ -96,14 +122,18 @@ class Pomodoro extends React.Component{
       this.setState({
         pause: false,
         labelAction: this.state.label + ' Started',
+        warning: '',
+        warn: true,
       })
     }else{
-    if(this.state.start){       // add counterresets and timouts to restart this.state.minute
+    if(this.state.start){       // add counterresets and timouts to restart this.state.minute, think about how it affects reset and counterEnd!!!
       clearInterval(startMinute);
       clearInterval(startSecond);
       this.setState({
         labelAction: this.state.label + ' Paused',
         pause: true,
+        warning: '',
+        warn: false,
       })
     }else{
     startMinute = setInterval(this.countMinutes, 60 * 1000);
@@ -111,6 +141,7 @@ class Pomodoro extends React.Component{
     this.setState({     
       start: true,
       labelAction: this.state.label + ' Started',
+      warn: true,
     })
     }
    }
@@ -120,8 +151,8 @@ class Pomodoro extends React.Component{
     clearInterval(startSecond);
     clearInterval(startMinute);
     this.setState({
-      sessiontimer: 25,
-      breakTimer: 5,
+      sessiontimer: 25,                    // check this for bugs, should it be this.state.sessionTimer or static???
+      breakTimer: this.state.breakTimer,  
       time: (this.state.session) ? (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer)) + ':' + '00' : this.state.breakTimer + ':' + '00' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer)) + ':' + '00' : this.state.sessionTimer + ':' + '00',
       minute: (this.state.session) ? (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer)) : this.state.breakTimer : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer)) : this.state.sessionTimer,    
       second:  '00',
@@ -151,6 +182,9 @@ class Pomodoro extends React.Component{
       labelAction: 'Session',
       start: false,
       pause: false,
+      warning: '',
+      warn: false,
+      end: '',
     })
   }
 
@@ -160,8 +194,8 @@ class Pomodoro extends React.Component{
       <header>
         <h1>Pomodoro</h1>
       </header>
-      <Session slength={this.state.sessionTimer} inc={this.sessionIncrement} dec={this.sessionDecrement}/>
-      <Break blength={this.state.breakTimer} inc={this.breakIncrement} dec={this.breakDecrement}/>
+      <Session slength={this.state.sessionTimer} inc={this.sessionIncrement} dec={this.sessionDecrement} warning={this.state.warning}/>
+      <Break blength={this.state.breakTimer} inc={this.breakIncrement} dec={this.breakDecrement} warning={this.state.warning}/>
       <Timer time_left={this.state.time} time_label={this.state.labelAction} reset={this.reset} start_stop={this.start_stop} end={this.state.end}/>
       <footer>
         <h3>Web Design and Development</h3>

@@ -90,6 +90,12 @@ footer {
   outline: none;
 }
 
+#session-length span, #break-length span {
+  font-size: 1vh;
+  margin-left: 3vh;
+  color: #bb5050;
+}
+
 #clock {
   margin: 4vh;
 }
