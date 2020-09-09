@@ -1,3 +1,15 @@
+@import './variables';
 
+.break{
+    @extend .session;
+}
+
+#break-label{
+    @extend #session-label
+}
+
+#break-length{
+    @extend #session-length
+}
 
 

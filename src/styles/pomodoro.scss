@@ -1,15 +1,7 @@
 @import './break';
 @import './session';
 @import './timer';
-
-
-$bgColor : #178513;
-$textColor: #161414;
-$whiteText : #F1EAEA;
-$pageColor: #ffffff;
-$buttonColor: #EACB47;
-$timerColor: #0c0c0c;
-$hover: #b99505;
+@import './variables';
 
 
 body{
@@ -52,111 +44,4 @@ footer{
     margin-top: 10vh;
     padding-bottom: 4vh;
 }
-
-.session{
-    color: $textColor;
-    text-align: center;
-    margin: 2vh 10vh;
-}
-
-#session-label{
-    color: $textColor;
-    text-align: center;
-    margin: 20px;
-    h3{
-        margin: 40px;
-        font-size: 4vh;
-        padding-left: 6vh;
-    }
-}
-
-#session-length{
-    margin: 2vh 10vh;
-    font-size: 4vh;
-    button{ 
-        margin: 2vh 0 2vh 5vh;
-        background: $buttonColor;
-        height: 2vh;
-        width: 2vh;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        &:hover{
-            background: $hover;
-            outline: none;
-        }
-        &:focus{
-            outline: none;
-        }
-    }
-    span{
-        font-size: 1vh;
-        margin-left: 3vh;
-        color: rgb(187, 80, 80);
-    }
-}
-
-.break{
-    @extend .session;
-}
-
-#break-label{
-    @extend #session-label
-}
-
-#break-length{
-    @extend #session-length
-}
-
-.timer{
-    @extend .session;
-}
-
-#timer-label{
-    @extend #session-label
-}
-
-#clock{
-    margin: 4vh;
-    h1{
-        font-size: 3vh;
-        margin-bottom: 8vh;
-    }
-    #red{
-        color: rgb(187, 80, 80);
-    }
-    button{
-        margin: 0 2vh;
-        background: $buttonColor;
-        height: 7vh;
-        width: 7vh;
-        border: none;
-        border-radius: 5px;
-        box-shadow: .2vh .2vh $textColor;
-        outline: none;
-        &:hover{
-            background: $hover;
-        }
-        &:focus{
-            outline: none;
-        }
-    }
-}
-
-#time-left{
-    background: $timerColor;
-    color: $pageColor;
-}
-
-input{
-    text-align: center;
-    background: $timerColor;
-    color: $pageColor;
-    height: 6vh;
-    width: 12vh;
-    border: none;
-    border-radius: 5px;
-    font-size: 2rem;
-}
-
 

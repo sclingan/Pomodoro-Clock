@@ -1,53 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #ffffff;
-  font-family: 'Chalkboard SE';
-  font-size: 16px;
-  letter-spacing: 2px;
-  line-height: 20px;
-}
-
-.pomodoro {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto;
-      grid-template-columns: auto;
-  -ms-grid-rows: auto auto auto;
-      grid-template-rows: auto auto auto;
-}
-
-header {
-  -ms-grid-column: 1;
-  grid-column: 1,1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  grid-row: 1,4;
-  background: #178513;
-  color: #161414;
-  text-align: center;
-  text-shadow: 1px 1px #F1EAEA;
-  height: 8vh;
-  padding-top: 2vh;
-  font-size: 4vh;
-}
-
-footer {
-  -ms-grid-column: 1;
-  grid-column: 1,1;
-  -ms-grid-row: 4;
-  grid-row: 4,4;
-  background: #178513;
-  color: #161414;
-  text-align: center;
-  height: 6vh;
-  padding-top: 2vh;
-  margin-top: 10vh;
-  padding-bottom: 4vh;
-}
-
 .session, .break, .timer {
   color: #161414;
   text-align: center;
@@ -132,6 +82,14 @@ footer {
 #time-left {
   background: #0c0c0c;
   color: #ffffff;
+  font-size: 4vh;
+  height: 6vh;
+  width: 15vh;
+  text-align: center;
+  padding-top: 1.5vh;
+  margin-left: 37vh;
+  margin-bottom: 4vh;
+  border-radius: 5px;
 }
 
 input {
@@ -143,5 +101,55 @@ input {
   border: none;
   border-radius: 5px;
   font-size: 2rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: 'Chalkboard SE';
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 20px;
+}
+
+.pomodoro {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+}
+
+header {
+  -ms-grid-column: 1;
+  grid-column: 1,1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1,4;
+  background: #178513;
+  color: #161414;
+  text-align: center;
+  text-shadow: 1px 1px #F1EAEA;
+  height: 8vh;
+  padding-top: 2vh;
+  font-size: 4vh;
+}
+
+footer {
+  -ms-grid-column: 1;
+  grid-column: 1,1;
+  -ms-grid-row: 4;
+  grid-row: 4,4;
+  background: #178513;
+  color: #161414;
+  text-align: center;
+  height: 6vh;
+  padding-top: 2vh;
+  margin-top: 10vh;
+  padding-bottom: 4vh;
 }
 /*# sourceMappingURL=pomodoro.css.map */

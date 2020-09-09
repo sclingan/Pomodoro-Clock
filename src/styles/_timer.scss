@@ -1,3 +1,63 @@
+@import './variables';
+
+.timer{
+    @extend .session;
+}
+
+#timer-label{
+    @extend #session-label
+}
+
+#clock{
+    margin: 4vh;
+    h1{
+        font-size: 3vh;
+        margin-bottom: 8vh;
+    }
+    #red{
+        color: rgb(187, 80, 80);
+    }
+    button{
+        margin: 0 2vh;
+        background: $buttonColor;
+        height: 7vh;
+        width: 7vh;
+        border: none;
+        border-radius: 5px;
+        box-shadow: .2vh .2vh $textColor;
+        outline: none;
+        &:hover{
+            background: $hover;
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+#time-left{
+    background: $timerColor;
+    color: $pageColor;
+    font-size: 4vh;
+    height: 6vh;
+    width: 15vh;
+    text-align: center;
+    padding-top: 1.5vh;
+    margin-left: 37vh;
+    margin-bottom: 4vh;
+    border-radius: 5px;
+}
+
+input{
+    text-align: center;
+    background: $timerColor;
+    color: $pageColor;
+    height: 6vh;
+    width: 12vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+}
 
 
 
