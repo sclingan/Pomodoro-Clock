@@ -6,6 +6,10 @@ import Timer from './timer';
 
 let startMinute;                                     // initialize variables to use for starting/stopping Intervals/Timeouts
 let startSecond;                                     // initialize variables to use for starting/stopping Intervals/Timeouts
+let secondsOffSet;                                   // initialize variables to user for pause/restart offsets
+let delay;
+let pausedMinutes;
+
 
 class Pomodoro extends React.Component{
   constructor(props){
@@ -35,10 +39,10 @@ class Pomodoro extends React.Component{
     this.countSeconds = this.countSeconds.bind(this);
     this.start_stop = this.start_stop.bind(this);
     this.counterEnd = this.counterEnd.bind(this);
-    this.delay = this.delay.bind(this);
+    this.delayMinutes = this.delayMinutes.bind(this);
 
   }    
-
+       // bug in sessionIncrement, if incremented after decrement displays 010:00 and 011:00
   sessionIncrement = () =>{                         // increment session timer
     if(this.state.warn){                           // if timer is running , instruct user to pause or reset before adjusting session
          this.setState({
@@ -47,7 +51,7 @@ class Pomodoro extends React.Component{
     }else{
       if(this.state.break){                        // if break timer is paused, adjust session but not this.state.minute
         this.setState({          
-           sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,
+           sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,        
         });
     }else{                                      
       this.setState({                              // if session is paused, adjust sessionTimer
@@ -121,21 +125,20 @@ class Pomodoro extends React.Component{
 
   start_stop = () =>{     
     if(this.state.pause){                                         // timer restarted after pause
-       let secondsOffSet = 60 - this.state.second;                // get the difference between current this.second and this.second when timer restarts
-       console.log(secondsOffSet);         
-       setTimeout(this.countMinutes, (60 -  secondsOffSet) * 1000); // reset all counters before ?? for pause, then pause??
+       secondsOffSet = 60 - this.state.second;                   // get the difference between current this.second and this.second when timer restarts
+       delay = setTimeout(this.countMinutes, (61 -  secondsOffSet) * 1000); 
        startSecond = setInterval(this.countSeconds, 1 * 1000);
-       startMinute = setInterval(this.countMinutes, 60 * 1000);
-      //startMinute = setInterval(this.countMinutes, 60 * 1000);
-      //startSecond = setInterval(this.countSeconds, 1 * 1000);
-      //this.setState({
-        //pause: false,
-        //labelAction: this.state.label + ' Started',
-        //warning: '',
-        //warn: true,
-      //});
+       pausedMinutes = setTimeout(this.delayMinutes, (61 - secondsOffSet) * 1000);
+      this.setState({
+        pause: false,
+        labelAction: this.state.label + ' Started',
+        warning: '',
+        warn: true,
+      });
     }else{
-      if(this.state.start){                                       // pause function
+      if(this.state.start){   
+          clearTimeout(delay);
+          clearTimeout(pausedMinutes);                                    // pause function
           clearInterval(startMinute);
           clearInterval(startSecond);
           this.setState({
@@ -159,6 +162,8 @@ class Pomodoro extends React.Component{
   }
 
   counterEnd = () =>{
+    clearTimeout(delay);
+    clearTimeout(pausedMinutes);
     clearInterval(startSecond);
     clearInterval(startMinute);
     this.setState({
@@ -178,6 +183,8 @@ class Pomodoro extends React.Component{
   }
 
   reset = () =>{
+    clearTimeout(delay);
+    clearTimeout(pausedMinutes);
     clearInterval(startMinute);
     clearInterval(startSecond);
     this.setState({
@@ -197,9 +204,9 @@ class Pomodoro extends React.Component{
     })
   }
 
-  delay = () =>{
-    setTimeout(this.countMinutes, 1 * 1000);
-    console.log('delay started');
+  delayMinutes = () =>{
+       startMinute = setInterval(this.countMinutes, 60 * 1000);
+       console.log('function called');
   }
 
   render(){
