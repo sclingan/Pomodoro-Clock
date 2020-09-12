@@ -9,14 +9,15 @@ let startSecond;                                     // initialize variables to 
 let secondsOffSet;                                   // initialize variables to user for pause/restart offsets
 let delay;
 let pausedMinutes;
+let waitTwoSeconds;
 
 
 class Pomodoro extends React.Component{
   constructor(props){
-    super(props);
+    (props);
     this.state={
-        sessionTimer: 25,                            // use to set this.state.minute for countMinute
-        breakTimer: 5,                               // use to set this.state.minute for countMinute
+        sessionTimer: 25,                            // use to set this.state.minute for countMinute    ** change back to 25
+        breakTimer: 5,                               // use to set this.state.minute for countMinute    ** change back to 5
         minute: '25',                                // use for this.countMinutes
         second: '00',                                  // use for this.countSeconds
         session: true,                               // set initial session
@@ -40,8 +41,9 @@ class Pomodoro extends React.Component{
     this.start_stop = this.start_stop.bind(this);
     this.counterEnd = this.counterEnd.bind(this);
     this.delayMinutes = this.delayMinutes.bind(this);
+    this.beep = this.beep.bind(this);
 
-  }    
+  }     // 20/29 passed
        // bug in sessionIncrement, if incremented after decrement displays 010:00 and 011:00
   sessionIncrement = () =>{                         // increment session timer
     if(this.state.warn){                           // if timer is running , instruct user to pause or reset before adjusting session
@@ -107,21 +109,22 @@ class Pomodoro extends React.Component{
 
   countMinutes = () =>{
     this.setState({                                                                                  
-      minute: (this.state.minute <= '00') ? 'clear' : (this.state.minute < 11) ? '0'.concat(String(this.state.minute -1)) : this.state.minute -1,
+      minute: (this.state.minute <= '00') ? '00' : (this.state.minute < 11) ? '0'.concat(String(this.state.minute -1)) : this.state.minute -1,
     })
-    if(this.state.minute === 'clear'){
-      this.counterEnd();
-    }
+    if(this.state.minute === '00'){
+        clearTimeout(delay);
+        clearTimeout(pausedMinutes);
+        clearInterval(startMinute);
+        clearInterval(startSecond);
+        waitTwoSeconds = setTimeout(this.counterEnd, 2 * 1000);
   }
+}
 
   countSeconds = () =>{
     this.setState({
       second: (this.state.second === '00') ? '59' : (this.state.second < 11) ? '0'.concat(String(this.state.second -1)) : this.state.second -1,
-    })
-    if(this.state.second === 'clear'){
-      this.counterEnd();
-    }
-  }
+    });
+}
 
   start_stop = () =>{     
     if(this.state.pause){                                         // timer restarted after pause
@@ -167,7 +170,7 @@ class Pomodoro extends React.Component{
     clearInterval(startSecond);
     clearInterval(startMinute);
     this.setState({
-      sessiontimer: this.state.sessionTimer,
+      sessionTimer: this.state.sessionTimer,
       breakTimer: this.state.breakTimer,                  
       minute: (this.state.session) ? (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer)) : this.state.breakTimer : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer)) : this.state.sessionTimer,    
       second:  '00',                       
@@ -179,6 +182,7 @@ class Pomodoro extends React.Component{
       pause: false,
       end: this.state.label + ' has Ended',
     })
+   this.beep()
    this.start_stop() 
   }
 
@@ -202,11 +206,19 @@ class Pomodoro extends React.Component{
       warn: false,
       end: '',
     })
+    let track = document.getElementsByTagName('audio').beep;
+    track.pause();
+    track.currentTime = 0;
   }
 
   delayMinutes = () =>{
        startMinute = setInterval(this.countMinutes, 60 * 1000);
-       console.log('function called');
+  }
+
+  beep = () =>{
+    let track = document.getElementsByTagName('audio').beep;
+    track.currentTime = 0;
+    track.play();
   }
 
   render(){

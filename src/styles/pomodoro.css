@@ -16,12 +16,12 @@
   padding-left: 6vh;
 }
 
-#session-length, #break-length {
+#session-length, #break-length, .break-length, .session-length {
   margin: 2vh 10vh;
   font-size: 4vh;
 }
 
-#session-length button, #break-length button {
+#session-length button, #break-length button, .break-length button, .session-length button {
   margin: 2vh 0 2vh 5vh;
   background: #EACB47;
   height: 2vh;
@@ -31,16 +31,16 @@
   outline: none;
 }
 
-#session-length button:hover, #break-length button:hover {
+#session-length button:hover, #break-length button:hover, .break-length button:hover, .session-length button:hover {
   background: #b99505;
   outline: none;
 }
 
-#session-length button:focus, #break-length button:focus {
+#session-length button:focus, #break-length button:focus, .break-length button:focus, .session-length button:focus {
   outline: none;
 }
 
-#session-length span, #break-length span {
+#session-length span, #break-length span, .break-length span, .session-length span {
   font-size: 1vh;
   margin-left: 3vh;
   color: #bb5050;
