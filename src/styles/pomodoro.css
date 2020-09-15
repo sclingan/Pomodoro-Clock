@@ -1,28 +1,31 @@
 .session, .break, .timer {
   color: #161414;
   text-align: center;
-  margin: 2vh 10vh;
+  margin: 2vh 3vh;
 }
 
 #session-label, #break-label, #timer-label {
   color: #161414;
   text-align: center;
-  margin: 20px;
 }
 
 #session-label h3, #break-label h3, #timer-label h3 {
-  margin: 40px;
-  font-size: 4vh;
-  padding-left: 6vh;
+  padding-left: 3vh;
+  font-size: 3vh;
+  margin: 2vh;
+}
+
+#session-label h1, #break-label h1, #timer-label h1 {
+  font-size: 2vh;
 }
 
 #session-length, #break-length, .break-length, .session-length {
-  margin: 2vh 10vh;
+  margin: .5vh 5vh;
   font-size: 4vh;
 }
 
 #session-length button, #break-length button, .break-length button, .session-length button {
-  margin: 2vh 0 2vh 5vh;
+  margin: 2vh 0 2vh 2vh;
   background: #EACB47;
   height: 2vh;
   width: 2vh;
@@ -42,7 +45,7 @@
 
 #session-length span, #break-length span, .break-length span, .session-length span {
   font-size: 1vh;
-  margin-left: 3vh;
+  margin-left: 1vh;
   color: #bb5050;
 }
 
@@ -51,8 +54,8 @@
 }
 
 #clock h1 {
-  font-size: 3vh;
-  margin-bottom: 8vh;
+  font-size: 2vh;
+  margin-bottom: 1vh;
 }
 
 #clock #red {
@@ -60,7 +63,7 @@
 }
 
 #clock button {
-  margin: 0 2vh;
+  margin-right: .5vh;
   background: #EACB47;
   height: 7vh;
   width: 7vh;
@@ -87,8 +90,7 @@
   width: 15vh;
   text-align: center;
   padding-top: 1.5vh;
-  margin-left: 37vh;
-  margin-bottom: 4vh;
+  margin-bottom: 1vh;
   border-radius: 5px;
 }
 
@@ -132,11 +134,11 @@ header {
   grid-row: 1,4;
   background: #178513;
   color: #161414;
-  text-align: center;
   text-shadow: 1px 1px #F1EAEA;
   height: 8vh;
   padding-top: 2vh;
-  font-size: 4vh;
+  padding-left: 4vh;
+  font-size: 2vh;
 }
 
 footer {
@@ -150,6 +152,6 @@ footer {
   height: 6vh;
   padding-top: 2vh;
   margin-top: 10vh;
-  padding-bottom: 4vh;
+  padding-bottom: 8vh;
 }
 /*# sourceMappingURL=pomodoro.css.map */
