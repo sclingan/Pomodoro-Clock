@@ -9,7 +9,7 @@ let startSecond;                                     // initialize variables to 
 let secondsOffSet;                                   // initialize variables to user for pause/restart offsets
 let delay;
 let pausedMinutes;
-//et waitTwoSeconds;
+
 
 
 class Pomodoro extends React.Component{
@@ -123,11 +123,10 @@ class Pomodoro extends React.Component{
 
   countMinutes = () =>{
     this.setState({                                                                                  
-      minute: (this.state.minute <= '00') ? /*'00'*/'clear' : (this.state.minute < 11) ? '0'.concat(String(this.state.minute -1)) : this.state.minute -1, 
+      minute: (this.state.minute <= '00') ? 'clear' : (this.state.minute < 11) ? '0'.concat(String(this.state.minute -1)) : this.state.minute -1, 
     })
-    if(this.state.minute === /*'00')*/'clear'){
+    if(this.state.minute === 'clear'){
       this.counterEnd();  
-      //waitTwoSeconds = setTimeout(this.counterEnd, 1000);
   }
 }
 
