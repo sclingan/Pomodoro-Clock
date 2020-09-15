@@ -26,12 +26,11 @@ header{
     grid-row: 1,4;
     background: $bgColor;
     color: $textColor;
-    //text-align: center;
+    text-align: center;
     text-shadow: 1px 1px $whiteText;
     height: 8vh;
     padding-top: 2vh;
     padding-left: 4vh;
-    //font-size: 4vh;
     font-size: 2vh;
 }
 
@@ -44,11 +43,12 @@ footer{
     height: 6vh;
     padding-top: 2vh;
     margin-top: 10vh;
-    //padding-bottom: 4vh;
     padding-bottom: 8vh;
 }
 
 @media only screen and (max-width: 768px){
-
+    footer{
+        padding-bottom: 10vh;
+    }
 }
 

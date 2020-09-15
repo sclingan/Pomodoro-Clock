@@ -1,18 +1,13 @@
 .session{
     color: $textColor;
     text-align: center;
-   // margin: 2vh 10vh;
    margin: 2vh 3vh;
 }
 
 #session-label{
     color: $textColor;
     text-align: center;
-    //margin: 20px;
     h3{
-        //margin: 40px;
-        //font-size: 4vh;
-        //padding-left: 6vh;
         padding-left: 3vh;
         font-size: 3vh;
         margin: 2vh;
@@ -23,15 +18,14 @@
 }
 
 #session-length{
-    //margin: 2vh 10vh;
     margin: .5vh 5vh;
     font-size: 4vh;
     button{ 
-        //margin: 2vh 0 2vh 5vh;
         margin: 2vh 0 2vh 2vh;
         background: $buttonColor;
-        height: 2vh;
-        width: 2vh;
+        font-size: 2vh;
+        height: 3vh;
+        width: 3vh;
         border: none;
         border-radius: 10px;
         outline: none;
@@ -45,7 +39,6 @@
     }
     span{
         font-size: 1vh;
-        //margin-left: 3vh;
         margin-left: 1vh;
         color: rgb(187, 80, 80);
     }
@@ -53,12 +46,6 @@
 
 .session-length{
     @extend #session-length
-}
-
-
-
-@media only screen and (max-width: 768px){
-
 }
 
 

@@ -9,20 +9,18 @@
 }
 
 #clock{
-    margin: 4vh; // margin: 4vh;
+    margin: 4vh; 
     h1{
-        //font-size: 3vh;
         font-size: 2vh;
-        //margin-bottom: 8vh;
         margin-bottom: 1vh;
     }
     #red{
         color: rgb(187, 80, 80);
     }
     button{
-        //margin: 0 2vh;
-        margin-right: .5vh;
+        margin: 0 8vh 0 6vh;
         background: $buttonColor;
+        font-size: 1.5vh;
         height: 7vh;
         width: 7vh;
         border: none;
@@ -43,29 +41,11 @@
     color: $pageColor;
     font-size: 4vh;
     height: 6vh;
-    width: 15vh;
+    min-width: 15vh;
     text-align: center;
     padding-top: 1.5vh;
-    //margin-left: 37vh;
-    //margin-bottom: 4vh;
     margin-bottom: 1vh;
     border-radius: 5px;
-}
-
-input{
-    text-align: center;
-    background: $timerColor;
-    color: $pageColor;
-    height: 6vh;
-    width: 12vh;
-    border: none;
-    border-radius: 5px;
-    font-size: 2rem;
-}
-
-
-@media only screen and (max-width: 768px){
-
 }
 
 
