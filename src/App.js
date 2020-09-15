@@ -23,7 +23,7 @@ class Pomodoro extends React.Component{
         session: true,                                                                               // set initial session
         break: false,                                                                                // set initial break to false
         label: 'Session',                                                                            // alert user whether 'Session' or 'Break'
-        labelAction: 'Session',               
+        labelAction: 'Session',                                                                      // alert user whether 'Session' or 'Break'
         start: false,                                                                                // determine if timer has started 
         pause: false,                                                                                // determine if timer has been paused
         end: '',                                                                                     // use to alert user that session/break has ended
@@ -45,7 +45,7 @@ class Pomodoro extends React.Component{
 
   }                           
       
-  sessionIncrement = () =>{                                                                           // increment session timer
+  sessionIncrement = () =>{                                                                          // increment session timer
     if(this.state.warn){                                                                             // if timer is running , instruct user to pause or reset before adjusting session
          this.setState({
            warning: 'Please press start/stop or reset to change',

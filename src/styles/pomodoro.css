@@ -64,7 +64,7 @@
 }
 
 #clock button {
-  margin: 0 8vh 0 6vh;
+  margin: 0 .5vh 0 0;
   background: #EACB47;
   font-size: 1.5vh;
   height: 7vh;
@@ -94,6 +94,22 @@
   padding-top: 1.5vh;
   margin-bottom: 1vh;
   border-radius: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  #clock button {
+    margin: 0 7vh 0 5vh;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #time-left {
+    max-width: 60vh;
+    margin: 2vh 35%;
+  }
+  #clock button {
+    margin: 0 10vh;
+  }
 }
 
 body {
