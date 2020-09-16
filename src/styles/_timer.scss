@@ -1,7 +1,7 @@
 @import './variables';
 
 .timer{
-    @extend .session;
+    @extend .session
 }
 
 #timer-label{
