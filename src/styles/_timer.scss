@@ -44,7 +44,7 @@
     min-width: 15vh;
     text-align: center;
     padding-top: 1.5vh;
-    margin-bottom: 1vh;
+    margin: 2vh 2%;
     border-radius: 5px;
 }
 
@@ -53,6 +53,11 @@
         button{
             margin: 0 7vh 0 5vh;
         }
+    }
+
+    #time-left{
+        max-width: 60vh;
+        margin: 2vh 35%;
     }
 }
 
@@ -66,7 +71,7 @@
         button{
             margin: 0 10vh;
         }
-    }
+    } 
 }
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import wavBeep from './beep.wav';
 
 
-
+// Display and start/stop , reset timers
 const Timer = (props) =>{
     return(
         <div className="timer">

@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+// Display and adjust session timers
 const Session = (props) =>{
     return(
         <div className="session">

@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+// Display and adjust break timers
 const Break = (props) =>{
     return(
         <div className="break">
