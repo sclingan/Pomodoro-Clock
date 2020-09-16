@@ -61,7 +61,7 @@ class Pomodoro extends React.Component{
            sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,    
         });
     }else{  
-      // If session is paused, ajust sessionTimer                                    
+      // If session is paused, adjust sessionTimer                                    
       this.setState({                                                                              
         sessionTimer: (this.state.sessionTimer > 59) ? 60 : this.state.sessionTimer + 1,    
         minute: (this.state.sessionTimer > 59) ? '60' : (this.state.sessionTimer < 9 ) ? '0'.concat(String(this.state.sessionTimer +1)) : this.state.sessionTimer + 1, 
@@ -84,7 +84,7 @@ class Pomodoro extends React.Component{
           sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,  
         });
     }else{
-      // If session is paused, ajust sessionTimer 
+      // If session is paused, adjust sessionTimer 
       this.setState({           
         sessionTimer: (this.state.sessionTimer < 2) ? 1 : this.state.sessionTimer - 1,   
         minute: (this.state.sessionTimer < 2) ? '01' : (this.state.sessionTimer < 11) ? '0'.concat(String(this.state.sessionTimer -1)) : this.state.sessionTimer - 1, 
@@ -107,7 +107,7 @@ class Pomodoro extends React.Component{
         breakTimer: (this.state.breakTimer > 59) ? 60 : this.state.breakTimer + 1, 
       });
     }else{
-     // If break is paused, ajust breakTimer
+     // If break is paused, adjust breakTimer
      this.setState({
        breakTimer: (this.state.breakTimer > 59) ? 60 : this.state.breakTimer + 1,    
        minute: (this.state.breakTimer > 59) ? '60' : (this.state.breakTimer < 9 ) ? '0'.concat(String(this.state.breakTimer +1)) : this.state.breakTimer + 1, 
@@ -130,7 +130,7 @@ class Pomodoro extends React.Component{
         breakTimer: (this.state.breakTimer < 2) ? 1 : this.state.breakTimer - 1,   
       })
     }else{
-     // If break is paused, ajust breakTimer
+     // If break is paused, adjust breakTimer
      this.setState({
        breakTimer: (this.state.breakTimer < 2) ? 1 : this.state.breakTimer -1,
        minute: (this.state.breakTimer < 2) ? '01' : (this.state.breakTimer < 11) ? '0'.concat(String(this.state.breakTimer -1)) : this.state.breakTimer -1,
