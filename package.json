@@ -1,9 +1,6 @@
 {
-  "author": "scott clingan",
-},
-
-{
   "name": "pomodoro",
+  "author": "scott clingan",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
